@@ -17,6 +17,8 @@ rmpath(pwd);
 rmpath(strcat(pwd,'\.core_system'));
 rmpath(strcat(pwd,'\library'));
 
+savepath;
+
 disp(' ');
 disp([name, ' ', version, ' successfully removed from your system!']);
 disp(' ');

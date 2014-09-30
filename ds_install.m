@@ -11,6 +11,8 @@ addpath(pwd);
 addpath(strcat(pwd,'\.core_system'));
 addpath(strcat(pwd,'\library'));
 
+savepath;
+
 [name, version] = ds_getlibrarydata();
 
 disp(' ');
