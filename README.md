@@ -11,6 +11,8 @@ Features of __v1.1__
 
 The current version frees you from any manual library template modification. Add new production functions or scripts to the __library__ folder, run the _ds_install.m_ script, and you are done. The new content is added to your MATLAB path temporarily.
 
+[Download the latest release](https://github.com/tiborsimon/MATLAB-Library-System-template/releases) 
+
 
 ##Install##
 
