@@ -40,7 +40,7 @@ if result == 2
     disp(' ');
     clear name version newPath rootDirectory allLibraryDirectories
 else
-    error('Error: You are in the wrong folder! Make sure you navigate to the root folder of the repo!');
+    error('Error: You are in the wrong folder! Make sure you navigate to the root folder of your library that contains the install script!');
 end
 
 clear ans currentFolders result k
