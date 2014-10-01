@@ -1,4 +1,4 @@
-MATLAB Library Template
+MATLAB Library System template
 ==================
 
 This is the library template used for the MATLAB DSP sandbox library. This system allows you to create an easily deployable MATLAB library, that installs itself to the user's MATLAB environment. 
