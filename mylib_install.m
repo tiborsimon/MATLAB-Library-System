@@ -45,7 +45,4 @@ end
 
 clear ans currentFolders result k
 
-
-
-
 % Created by Tibor Simon at 2014.09.30. Budapest
