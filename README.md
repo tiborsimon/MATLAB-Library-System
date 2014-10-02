@@ -3,7 +3,7 @@ MATLAB Library System template
 
 This system allows you to create an easily deployable MATLAB library, that installs itself to the user's MATLAB environment. 
 
-Features of __v1.1__
+Features of the latest release
 * automatic library content detection
 * wrong folder error detection
 * safe and temporary path changing
