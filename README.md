@@ -20,7 +20,9 @@ By installing the library, you will put the repository's and all of it's subfold
 
 To install this library you should run the _ds_install.m_ script file in the root folder of the repository.
 
-__IMPORTANT__: before you run the script navigate your Current Folder to this repo's root, otherwise the installation will be unsuccessful..
+__IMPORTANT__: Before you run the script navigate your Current Folder to this repo's root, otherwise the installation will be unsuccessful..
+
+__IMPORTANT__: Do not rename the _library_ folder name, just put your content in it.
 
 __NOTE__: By installing the library, MATLAB has to save the path to the disk, therefore it needs permission from you to do this for the first time. It will promt a message window if you didn't give the permission yet.
 
