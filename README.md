@@ -6,7 +6,7 @@ This system allows you to create an easily deployable MATLAB library, that insta
 Features of the [latest release](https://github.com/tiborsimon/MATLAB-Library-System-template/releases):
 * automatic library content detection
 * wrong folder error detection
-* safe and temporary path changing
+* safe and permanent path changing
 * globally managed library name and library version
 
 The current version frees you from any manual library template modification. Add new production functions or scripts to the __library__ folder, run the _ds_install.m_ script, and you are done. The new content is added to your MATLAB path temporarily.
