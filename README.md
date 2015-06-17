@@ -47,7 +47,7 @@ There are three library properties you can edit in the `my_library/librarydata.t
 
 1. Library name
 2. Library version
-3. Message to the user after installation
+3. Message to the user after installation _(optional)_
 
 Further lines will be ignored.
 
