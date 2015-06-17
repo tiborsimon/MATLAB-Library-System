@@ -41,18 +41,25 @@ my_library                | top level folder of your library
         dummy_lib_test.m  | dummy deletable function for installation testing
 ```
 
-## Changing the library's name and version
+## Modifying the library properties
 
-If you want to modify your library's name and version, you can edit the `my_library//librarydata.txt` file according to your needs. The first row contains the library name and the second row contains the library version.
+There are three library properties you can edit in the `my_library/librarydata.txt` file indexed by the rows of the file:
+
+1. Library name
+2. Library version
+3. Message to the user after installation
+
+If you want to modify your library's name and version, you can edit the `my_library/librarydata.txt` file according to your needs. The first row contains the library name and the second row contains the library version.
 
 The default `librarydata.txt` file looks like this:
 
 ```
 My Library
 v1.0
+HINT: Test your installation by typing: dummy_lib_test()
 ```
 
-By modifying this file, the installer and uninstaller script will print the new name and version implicitly.
+These settings will produce the following output during installation.
 
 ```
 >> install
@@ -63,6 +70,8 @@ By modifying this file, the installer and uninstaller script will print the new 
    path added: C:\...\library
 --------------------------------------------------------------------------------------
  My Library v1.0 has been successfully installed on your system!
+--------------------------------------------------------------------------------------
+ HINT: Test your installation by typing: dummy_lib_test()
 ======================================================================================
  
 ```
