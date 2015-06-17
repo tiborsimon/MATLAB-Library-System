@@ -17,11 +17,9 @@ Library handling module that makes adding and removing your MATLAB scripts and f
 
 ### Command line way
 
-1. Clone this repository to your system:
-```
-git clone git@github.com:tiborsimon/MATLAB-Library-System.git my_library
-```
- You can edit the folder name according to your needs.
+1. Clone this repository to your system:<br />
+   `git clone git@github.com:tiborsimon/MATLAB-Library-System.git my_library`<br />
+   You can edit the folder name according to your needs.
 1. Edit the library name (see details later).
 1. Copy your project into the `library` folder.
 1. Done. Your project is ready to ship.
