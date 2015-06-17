@@ -11,7 +11,10 @@ This system allows you to create an easily deployable MATLAB library, that insta
 
 <a href="http://tiborsimon.github.io/programming/matlab-library-system/" target="_blank"><img src="http://tiborsimon.github.io/images/core/corresponding-article.png" /></a>   <a href="http://tiborsimon.github.io/programming/matlab-library-system/#discussion" target="_blank"><img src="http://tiborsimon.github.io/images/core/join-to-the-discussion.png" /></a>
 
-The current version frees you from any manual library template modification. Add new production functions or scripts to the __library__ folder, run the _ds_install.m_ script, and you are done. The new content is added to your MATLAB path permamently.
+## How to use?
+
+- Copy 
+Add new production functions or scripts to the __library__ folder, run the _mylib_install.m_ script, and you are done. The new content is added to your MATLAB path permamently.
 
 
 ## Install script
