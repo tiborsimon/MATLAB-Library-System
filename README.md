@@ -57,7 +57,14 @@ By modifying this file, the installer and uninstaller script will print the new 
 ```
 >> install
  
-My Library v1.0 has been successfully installed on your system!
+======================================================================================
+ MATLAB Library System: installing My Library v1.0..
+--------------------------------------------------------------------------------------
+   path added: C:\...\library
+--------------------------------------------------------------------------------------
+ My Library v1.0 has been successfully installed on your system!
+======================================================================================
+ 
 ```
 
 
