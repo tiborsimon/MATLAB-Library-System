@@ -1,11 +1,12 @@
-%% DSP Sandbox install script
-% This script will install the entire DSP sandbox to your Matlab path
-% including all of the present folders and subfolders. Always run the
-% latest verision of install script after you cloned the latest repo to
-% your system.
+%% MATLAB Library System installation script
+% By running this script the content of the current folder's `library` folder 
+% will be injected to the MATLAB path permamently on your system. This will
+% allow you to access any script, function, class or data from any path you
+% are currently in. You can uninstall the library by running the uninstall 
+% script you can find next to this script.
 
-% IMPORTANT: before you run the script navigate your Current Folder to the
-% DSP Sandbox repo root, otherwise the installation will be unsuccessful..
+% Tibor Simon 2015 All rights reserved under the MIT License
+
 
 %% Test the current location
 
@@ -36,7 +37,7 @@ if check
     [name, version] = core_getlibrarydata();
 
     disp(' ');
-    disp([name, ' ', version, ' successfully installed on your system!']);
+    disp([name, ' ', version, ' has been successfully installed on your system!']);
     disp(' ');
     clear name version newPath rootDirectory allLibraryDirectories
 else
