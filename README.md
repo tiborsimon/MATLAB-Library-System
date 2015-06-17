@@ -65,7 +65,7 @@ My Library v1.0 has been successfully installed on your system!
 
 You can put your every project into a __MATLAB Library System__ so you can manage them separately by installing or uninstalling them on demand. You can ship your projects to others in a nice and isolated way too. No more hassle with the MATLAB path. Your customer just runs the install script and your project is ready to use. 
 
-_Less friction in the customer side equals happier customers :)_
+_Less friction means happier customers :)_
 
 ## License
 
