@@ -35,7 +35,7 @@ my_library                | top level folder of your library
 │   librarydata.txt       | edit your library name and version here
 │   LICENSE               | add your license here optionally
 │   README.md             | you can edit this readme file optionally
-│   uninstall.m           | remove your library to the MATLAB path
+│   uninstall.m           | remove your library from the MATLAB path
 │                         | 
 └───library               | all your code goes here
         dummy_lib_test.m  | dummy deletable function for installation testing
