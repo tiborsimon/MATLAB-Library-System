@@ -28,43 +28,59 @@
 % SOFTWARE.
 
 
-%% Test the current location
+function install()
+    %% Test the current location
 
-rootDirectory = strcat(pwd,'\');
+    rootDirectory = strcat(pwd,'\');
+    disp(' ');
 
-disp(' ');
-try
-    addpath(strcat(rootDirectory,'.core_system'));
-    check = core_checkenvironment(dir); 
-catch err 
-    check = 0;
-    rmpath(strcat(rootDirectory,'.core_system'));
-end
-
-disp(['    path added: ', strcat(rootDirectory,'.core_system')]);
-
-%% Based on the previous test, add the libraries or send an error message
-
-if check
-    allLibraryDirectories = regexp(genpath('library'),['[^;]*'],'match');
-    
-    for k=1:length(allLibraryDirectories)
-        newPath = strcat(rootDirectory,allLibraryDirectories{k});
-        addpath(newPath);
-        disp(['    path added: ', newPath]);
+    try
+        check = core_checkenvironment(dir); 
+    catch err 
+        check = 0;
     end
 
-    savepath;
+    %% Based on the previous test, add the libraries or send an error message
 
-    [name, version] = core_getlibrarydata();
+    if check
+        allLibraryDirectories = regexp(genpath('library'),['[^;]*'],'match');
 
-    disp(' ');
-    disp([name, ' ', version, ' has been successfully installed on your system!']);
-    disp(' ');
-    clear name version newPath rootDirectory allLibraryDirectories
-else
-    clear check err rootDirectory
-    error('Error: You are in the wrong folder! Make sure you navigate to the root folder of your library that contains the install script!');
+        for k=1:length(allLibraryDirectories)
+            newPath = strcat(rootDirectory,allLibraryDirectories{k});
+            addpath(newPath);
+            disp(['    path added: ', newPath]);
+        end
+
+        savepath;
+
+        [name, version] = core_getlibrarydata();
+
+        disp(' ');
+        disp([name, ' ', version, ' has been successfully installed on your system!']);
+        disp(' ');
+        clear name version newPath rootDirectory allLibraryDirectories
+    else
+        clear check err rootDirectory
+        error('Error: You are in the wrong folder! Make sure you navigate to the root folder of your library that contains the install script!');
+    end
+
+    clear ans currentFolders result k check
 end
 
-clear ans currentFolders result k check
+function [ ret ] = core_checkenvironment( currentFolders )
+    result = 0;
+    for k=1:length(currentFolders);
+        if strcmp(currentFolders(k).name,'library')
+            result = result + 1;
+        end
+    end
+    ret = result == 1; 
+end
+
+function [ name, version ] = core_getlibrarydata()
+    fileID = fopen('librarydata.txt');
+    name = fgetl(fileID);
+    version = fgetl(fileID);
+    fclose(fileID);
+end
+
