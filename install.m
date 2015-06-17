@@ -13,12 +13,10 @@
 rootDirectory = strcat(pwd,'\');
 
 try
-    addpath(pwd);
     addpath(strcat(rootDirectory,'.core_system'));
     check = core_checkenvironment(dir); 
 catch err 
     check = 0;
-    rmpath(pwd);
     rmpath(strcat(rootDirectory,'.core_system'));
 end
 
