@@ -27,37 +27,52 @@
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 % SOFTWARE.
 
+function uninstall()
+    disp(' ');
+    try
+        if core_checkenvironment(dir);
+            [name, version] = core_getlibrarydata();
 
-disp(' ');
-try
-    if core_checkenvironment(dir);
-        [name, version] = core_getlibrarydata();
-        
-        rootDirectory = strcat(pwd,'\');
-        rmpath(strcat(rootDirectory,'.core_system'));
-        
-        disp(['    path removed: ', strcat(rootDirectory,'.core_system')]);
+            rootDirectory = strcat(pwd,'\');
 
-        allLibraryDirectories = regexp(genpath('library'),['[^;]*'],'match');
+            allLibraryDirectories = regexp(genpath('library'),['[^;]*'],'match');
 
-        for k=1:length(allLibraryDirectories)
-            newPath = strcat(rootDirectory,allLibraryDirectories{k});
-            rmpath(newPath);
-            disp(['    path removed: ', newPath]);
+            for k=1:length(allLibraryDirectories)
+                newPath = strcat(rootDirectory,allLibraryDirectories{k});
+                rmpath(newPath);
+                disp(['    path removed: ', newPath]);
+            end
+
+            savepath;
+
+            disp(' ');
+            disp([name, ' ', version, ' has been successfully removed from your system!']);
+            disp(' ');
+            clear name version newPath rootDirectory allLibraryDirectories
+        else
+            error('Error: You are in the wrong folder! Make sure you navigate to the root folder of your library that contains the uninstall script!');
         end
+    catch err
+        clear err;
+        error('Error: Your library has been uninstalled already..')
+    end 
 
-        savepath;
+    clear ans currentFolders result k
+end
 
-        disp(' ');
-        disp([name, ' ', version, ' has been successfully removed from your system!']);
-        disp(' ');
-        clear name version newPath rootDirectory allLibraryDirectories
-    else
-        error('Error: You are in the wrong folder! Make sure you navigate to the root folder of your library that contains the uninstall script!');
+function [ ret ] = core_checkenvironment( currentFolders )
+    result = 0;
+    for k=1:length(currentFolders);
+        if strcmp(currentFolders(k).name,'library')
+            result = result + 1;
+        end
     end
-catch err
-    clear err;
-    error('Error: Your library has been uninstalled already..')
-end 
+    ret = result == 1; 
+end
 
-clear ans currentFolders result k
+function [ name, version ] = core_getlibrarydata()
+    fileID = fopen('librarydata.txt');
+    name = fgetl(fileID);
+    version = fgetl(fileID);
+    fclose(fileID);
+end
