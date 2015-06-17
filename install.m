@@ -32,7 +32,6 @@ function install()
     %% Test the current location
 
     rootDirectory = strcat(pwd,'\');
-    disp(' ');
 
     try
         check = core_checkenvironment(dir); 
@@ -69,6 +68,7 @@ function install()
         else
             disp('======================================================================================');
         end
+        disp(' ');
         
         clear name version newPath rootDirectory allLibraryDirectories
     else
