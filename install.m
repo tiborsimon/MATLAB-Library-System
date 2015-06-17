@@ -55,7 +55,7 @@ function install()
         for k=1:length(allLibraryDirectories)
             newPath = strcat(rootDirectory,allLibraryDirectories{k});
             addpath(newPath);
-            disp(['     path added: ', newPath]);
+            disp(['   path added: ', newPath]);
         end
 
         savepath;
@@ -96,3 +96,4 @@ function [ name, version, message ] = core_getlibrarydata()
     message = fgetl(fileID);
     fclose(fileID);
 end
+
