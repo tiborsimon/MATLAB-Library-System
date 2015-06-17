@@ -28,18 +28,22 @@
 % SOFTWARE.
 
 
+disp(' ');
 try
     if core_checkenvironment(dir);
         [name, version] = core_getlibrarydata();
         
         rootDirectory = strcat(pwd,'\');
         rmpath(strcat(rootDirectory,'.core_system'));
+        
+        disp(['    path removed: ', strcat(rootDirectory,'.core_system')]);
 
         allLibraryDirectories = regexp(genpath('library'),['[^;]*'],'match');
 
         for k=1:length(allLibraryDirectories)
             newPath = strcat(rootDirectory,allLibraryDirectories{k});
             rmpath(newPath);
+            disp(['    path removed: ', newPath]);
         end
 
         savepath;
@@ -57,5 +61,3 @@ catch err
 end 
 
 clear ans currentFolders result k
-
-% Created by Tibor Simon at 2014.10.02. Budapest
