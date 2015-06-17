@@ -30,26 +30,22 @@ Library handling module that makes shipment and adding/removing MATLAB scripts a
 __MATLAB Library System__ has got a simple folder structure.
 
 ```
-mylib                           | top level folder of your library 
-│  install.m                    | add your library to the MATLAB path
-│  unistall.m                   | remove your library to the MATLAB path
-│  README.md                    | you can edit this readme file optionally
-│  LICENSE                      | add your license here optionally
-│                               | 
-├─.core_system                  | core functionality folder
-│     core_checkenvironment.m   | core helper script should not be modified
-│     core_getlibrarydata.m     | core helper script should not be modified
-│     librarydata               | edit your library name and version here
-│                               | 
-└─library                       | all your code goes here
-      mylib_dummytest.m         | dummy deletable function for installation testing
+my_library                | top level folder of your library 
+│   install.m             | add your library to the MATLAB path
+│   librarydata.txt       | edit your library name and version here
+│   LICENSE               | add your license here optionally
+│   README.md             | you can edit this readme file optionally
+│   uninstall.m           | remove your library to the MATLAB path
+│                         | 
+└───library               | all your code goes here
+        dummy_lib_test.m  | dummy deletable function for installation testing
 ```
 
 ## Changing the library's name and version
 
-If you want to modify your library's name and version, you can edit the `mylib/.core_system/librarydata` file according to your needs. The first row contains the library name and the second row contains the library version.
+If you want to modify your library's name and version, you can edit the `my_library//librarydata.txt` file according to your needs. The first row contains the library name and the second row contains the library version.
 
-The default `librarydata` file looks like this:
+The default `librarydata.txt` file looks like this:
 
 ```
 My Library
