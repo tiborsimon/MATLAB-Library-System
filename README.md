@@ -1,60 +1,75 @@
-MATLAB Library System template
-==================
+# MATLAB Library System
 
-This system allows you to create an easily deployable MATLAB library, that installs itself to the user's MATLAB environment. 
+Library handling module that makes adding and removing your MATLAB scripts and functions convenient.
 
-### Features
-* automatic library content detection
-* wrong folder error detection
-* safe and permanent path changing
-* globally managed library name and library version
+## Using the system
 
-<a href="http://tiborsimon.github.io/programming/matlab-library-system/" target="_blank"><img src="http://tiborsimon.github.io/images/core/corresponding-article.png" /></a>   <a href="http://tiborsimon.github.io/programming/matlab-library-system/#discussion" target="_blank"><img src="http://tiborsimon.github.io/images/core/join-to-the-discussion.png" /></a>
+### Manual way
 
-## How to use?
+1. Create a new folder that will be the root folder of your project.
+1. Copy the content of this repository into that folder.
+1. Edit the library name (see details later).
+1. Copy your project into the `library` folder.
+1. Done. Your project is ready to ship.
+1. You can test your library by running the `install.m` script.
 
-- Copy 
-Add new production functions or scripts to the __library__ folder, run the _mylib_install.m_ script, and you are done. The new content is added to your MATLAB path permamently.
+### Command line way
+
+1. Clone this repository to your system:
+    `git clone git@github.com:tiborsimon/MATLAB-Library-System.git my_library`
+    You can edit the folder name according to your needs.
+1. Edit the library name (see details later).
+1. Copy your project into the `library` folder.
+1. Done. Your project is ready to ship.
+1. You can test your library by running the `install.m` script.
+
+## Folder structure
+
+__MATLAB Library System__ has got a simple folder structure.
+
+```
+mylib                           | top level folder of your library 
+│  install.m                    | add your library to the MATLAB path
+│  unistall.m                   | remove your library to the MATLAB path
+│  README.md                    | you can edit this readme file optionally
+│  LICENSE                      | add your license here optionally
+│                               | 
+├─.core_system                  | core functionality folder
+│     core_checkenvironment.m   | core helper script should not be modified
+│     core_getlibrarydata.m     | core helper script should not be modified
+│     librarydata               | edit your library name and version here
+│                               | 
+└─library                       | all your code goes here
+      mylib_dummytest.m         | dummy deletable function for installation testing
+```
+
+## Changing the library's name and version
+
+If you want to modify your library's name and version, you can edit the `mylib/.core_system/librarydata` file according to your needs. The first row contains the library name and the second row contains the library version.
+
+The default `librarydata` file looks like this:
+
+```
+My Library
+v1.0
+```
+
+By modifying this file, the installer and uninstaller script will print the new name and version implicitly.
+
+```
+>> install
+ 
+My Library v1.0 has been successfully installed on your system!
+```
 
 
-## Install script
+## Possible use case
 
-By installing the library, you will put the repository's and all of it's subfolders path to the global MATLAB path. This allows you to call the functions and scripts defined in this library anywhere in MATLAB.
+You can put your every project into a __MATLAB Library System__ so you can manage them separately by installing or uninstalling them on demand. You can ship your projects to others in a nice and isolated way too. No more hassle with the MATLAB path. Your customer just runs the install script and your project is ready to use. 
 
-To install this library you should run the _ds_install.m_ script file in the root folder of the repository.
+_Less friction in the customer side equals happier customers :)_
 
-__IMPORTANT__: Before you run the script navigate your Current Folder to this repo's root, otherwise the installation will be unsuccessful..
+## License
 
-__IMPORTANT__: Do not rename the _library_ folder name, just put your content in it.
-
-__NOTE__: By installing the library, MATLAB has to save the path to the disk, therefore it needs permission from you to do this for the first time. It will promt a message window if you didn't give the permission yet.
-
-To __check__ the installation, navigate out of the repository's root folder, and type `mylib_dummytest()` If the function prints out a message, you have a correctly installed library on your system.
-
-## Uninstall script
-
-By uninstalling the library, you simply remove the path's added before to the global MATLAB path. This will prevent MATLAB to look for the location of this repository (even if it is deleted) for a function or script name lookup.
-
-To uninstall this library run the _ds_uninstall.m_ script.
-
-_It is not necessary to unistall the library from your system. If you delete the repo, nothing will happen. But if you want to keep your MATLAB path clean an updated, you should run the uninstall script before you delete the repo._
-
-## Adding new code 
-
-Just add your new function or script to the __library__ folder, or any subfolder in it, run the _ds_install.m_ script in the root folder of the repository, and you are _done_! Nothing else needs to be modified. You can concentrate to your work without bothering with the MATLAB path.
-
-## Change library name and version
-
-Find a file called __librarydata__ in the _.core_system_ hidden folder in the repo root, and edit it according to your needs.
-
-The __librarydata__ file is a simple textfile. The first line contains the your library's name, the second line contains it's version, and there is an empty newline at the end of the file.
-
-__IMPORTANT__: make sure you follow the syntax requirements specified above, otherwise the core library system won't display the name and version of your library correctly..
-
-## Change prefix
-
-If you want to change the default _mylib_ prefix in your library to something else, you can do it. You only have to modify the _install_ and _uninstall_ script's name. Nothing else should be modified outside the __library__ folder, otherwise your core system won't work.
-
-If you want to keep the _mylib_dummytest_ function in the _library_ folder, you should change it's prefix as well, to keep the library consistent!
-
-__NOTE__: make sure you chose a short enough prefix. Long prefixes are headaches to type in every time.
+This project is under the __MIT license__. 
+See the included license file for further details.
