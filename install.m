@@ -32,6 +32,7 @@
 
 rootDirectory = strcat(pwd,'\');
 
+disp(' ');
 try
     addpath(strcat(rootDirectory,'.core_system'));
     check = core_checkenvironment(dir); 
@@ -39,6 +40,8 @@ catch err
     check = 0;
     rmpath(strcat(rootDirectory,'.core_system'));
 end
+
+disp(['    path added: ', strcat(rootDirectory,'.core_system')]);
 
 %% Based on the previous test, add the libraries or send an error message
 
@@ -48,6 +51,7 @@ if check
     for k=1:length(allLibraryDirectories)
         newPath = strcat(rootDirectory,allLibraryDirectories{k});
         addpath(newPath);
+        disp(['    path added: ', newPath]);
     end
 
     savepath;
@@ -64,5 +68,3 @@ else
 end
 
 clear ans currentFolders result k check
-
-% Created by Tibor Simon at 2014.10.02. Budapest
