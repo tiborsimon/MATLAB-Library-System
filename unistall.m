@@ -13,7 +13,6 @@ try
         [name, version] = core_getlibrarydata();
         
         rootDirectory = strcat(pwd,'\');
-        % rmpath(pwd);
         rmpath(strcat(rootDirectory,'.core_system'));
 
         allLibraryDirectories = regexp(genpath('library'),['[^;]*'],'match');
