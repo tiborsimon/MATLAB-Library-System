@@ -1,9 +1,9 @@
 # MATLAB Library System
 
-[![The MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](#license)
+[![Version](https://img.shields.io/badge/version-v2.1-green.svg?style=flat)](https://github.com/tiborsimon/MATLAB-Library-System/releases/latest)
 [![Article](https://img.shields.io/badge/article-read-blue.svg?style=flat)](http://tiborsimon.github.io/programming/matlab-library-system/)
 [![Discussion](https://img.shields.io/badge/discussion-join-orange.svg?style=flat)](http://tiborsimon.github.io/programming/matlab-library-system/#discussion)
-[![Version](https://img.shields.io/badge/version-v1.3-green.svg?style=flat)](https://github.com/tiborsimon/MATLAB-Library-System/releases/latest)
+[![The MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](#license)
 
 Library handling module that makes shipment and adding/removing MATLAB scripts and functions convenient for you and your customers.
 
