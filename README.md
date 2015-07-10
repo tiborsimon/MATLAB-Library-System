@@ -4,7 +4,7 @@
 
 Library handling module that makes shipment and adding/removing MATLAB scripts and functions convenient for you and your customers.
 
- <a href="http://tiborsimon.github.io/programming/matlab-library-system/" target="_blank"><img src="http://tiborsimon.github.io/images/core/corresponding-article.png" /></a>   <a href="http://tiborsimon.github.io/programming/matlab-library-system/#discussion" target="_blank"><img src="http://tiborsimon.github.io/images/core/join-to-the-discussion.png" /></a>
+ <a href="http://tiborsimon.github.io/programming/matlab-library-system/" target="_blank"><img src="https://img.shields.io/badge/article-read-blue.svg?style=flat" /></a>   <a href="http://tiborsimon.github.io/programming/matlab-library-system/#discussion" target="_blank"><img src="https://img.shields.io/badge/discussion-join-orange.svg?style=flat" /></a>
 
 ## Using the system
 
