@@ -8,10 +8,12 @@ Library handling module that makes shipment and adding/removing MATLAB scripts a
 <a title="Goto article" href="http://tiborsimon.github.io/programming/matlab-library-system/" target="_blank">
    <img src="https://img.shields.io/badge/article-read-blue.svg?style=flat" />
 </a>
-<a title="http://tiborsimon.github.io/programming/matlab-library-system/#discussion" target="_blank">
+<a title="Goto discussion" href="http://tiborsimon.github.io/programming/matlab-library-system/#discussion" target="_blank">
    <img src="https://img.shields.io/badge/discussion-join-orange.svg?style=flat" />
 </a>
-[![The MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](#license)
+<a title="License" href="#license">
+   <img src="http://img.shields.io/badge/license-MIT-green.svg?style=flat" />
+</a>
 
 ## Using the system
 
