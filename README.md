@@ -19,7 +19,7 @@ Library handling module that makes shipment and adding/removing MATLAB scripts a
 
 ### Manual way
 
-1. Download the (latest release)[http://tiborsimon.io/projects/matlab-library-system/] of the system. 
+1. Download the [latest release](https://github.com/tiborsimon/MATLAB-Library-System/releases/latest) of the system. 
 1. Edit the library name if you want _(see details later)_.
 1. Copy your project into the `library` folder.
 1. Done. Your project is ready to ship.
