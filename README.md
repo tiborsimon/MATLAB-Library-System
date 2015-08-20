@@ -24,37 +24,37 @@ Library handling module that makes shipment and adding/removing MATLAB scripts a
 1. Edit the library name if you want _(see details later)_.
 1. Copy your project into the `library` folder.
 1. Done. Your project is ready to ship.
-1. You can test your library by running the `install.m` script.
+1. You can test your library by navigating into the library's main folder and by running the `install` command or the `install.m` script.
 
 ### Command line way
 
 1. Clone this repository to your system:<br />
-   `git clone git@github.com:tiborsimon/MATLAB-Library-System.git my_library`<br />
+   `git clone git@github.com:tiborsimon/matlab-library-system.git my-library`<br />
    You can edit the folder name according to your needs.
 1. Edit the library name if you want _(see details later)_.
 1. Copy your project into the `library` folder.
 1. Done. Your project is ready to ship.
-1. You can test your library by running the `install.m` script.
+1. You can test your library by navigating into the library's main folder and by running the `install` command or the `install.m` script.
 
 ## Folder structure
 
 __MATLAB Library System__ has got a simple folder structure.
 
 ```
-my_library                | top level folder of your library 
+my-library                | top level folder of your library 
 │   install.m             | add your library to the MATLAB path
 │   librarydata.txt       | edit your library name and version here
-│   LICENSE               | add your license here optionally
-│   README.md             | you can edit this readme file optionally
+│   LICENSE               | add your license here [optional]
+│   README.md             | you can edit this readme file [optional]
 │   uninstall.m           | remove your library from the MATLAB path
 │                         | 
-└───library               | all your code goes here
-        dummy_lib_test.m  | dummy deletable function for installation testing
+└───library               | all your code goes here, do not change the name!
+        my_function.m     | dummy deletable function for installation testing
 ```
 
 ## Modifying the library properties
 
-There are three library properties you can edit in the `my_library/librarydata.txt` file indexed by the rows of the file:
+There are three library properties you can edit in the `my-library/librarydata.txt` file indexed by the rows of the file:
 
 1. Library name
 2. Library version
@@ -67,7 +67,7 @@ The default `librarydata.txt` file looks like this:
 ```
 My Library
 v1.0
-HINT: Test your installation by typing: dummy_lib_test()
+HINT: Test your installation by typing: my_function()
 ```
 
 These settings will produce the following output during installation.
@@ -78,13 +78,12 @@ These settings will produce the following output during installation.
 ======================================================================================
  MATLAB Library System: installing My Library v1.0..
 --------------------------------------------------------------------------------------
-   path added: C:\...\library
+   path added: C:\Users\Tibor\Downloads\matlab-library-system-master\my-library\library
 --------------------------------------------------------------------------------------
  My Library v1.0 has been successfully installed on your system!
 --------------------------------------------------------------------------------------
- HINT: Test your installation by typing: dummy_lib_test()
+ HINT: Test your installation by typing: my_function()
 ======================================================================================
- 
 ```
 
 
