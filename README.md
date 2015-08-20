@@ -3,12 +3,12 @@
 Library handling module that makes shipment and adding/removing MATLAB scripts and functions convenient for you and your customers.
 
 <a title="Latest version" href="https://github.com/tiborsimon/MATLAB-Library-System/releases/latest" target="_blank">
-   <img src="https://img.shields.io/badge/version-v2.1-green.svg?style=flat" />
+   <img src="https://img.shields.io/badge/version-v2.2.0-green.svg?style=flat" />
 </a>
-<a title="Goto article" href="http://tiborsimon.github.io/programming/matlab-library-system/" target="_blank">
+<a title="Goto article" href="http://tiborsimon.io/projects/matlab-library-system/" target="_blank">
    <img src="https://img.shields.io/badge/article-read-blue.svg?style=flat" />
 </a>
-<a title="Goto discussion" href="http://tiborsimon.github.io/programming/matlab-library-system/#discussion" target="_blank">
+<a title="Goto discussion" href="http://tiborsimon.io/projects/matlab-library-system/#discussion" target="_blank">
    <img src="https://img.shields.io/badge/discussion-join-orange.svg?style=flat" />
 </a>
 <a title="License" href="#license">
@@ -19,8 +19,7 @@ Library handling module that makes shipment and adding/removing MATLAB scripts a
 
 ### Manual way
 
-1. Create a new folder that will be the root folder of your project.
-1. Copy the content of this repository into that folder.
+1. Download the [latest release](http://tiborsimon.io/projects/matlab-library-system/). 
 1. Edit the library name if you want _(see details later)_.
 1. Copy your project into the `library` folder.
 1. Done. Your project is ready to ship.
