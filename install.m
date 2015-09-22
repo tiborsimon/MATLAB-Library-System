@@ -1,6 +1,6 @@
 %% MATLAB Library System installation script
 % By running this script the content of the current folder's `library` folder 
-% will be injected to the MATLAB path permamently on your system. This will
+% will be injected into the MATLAB path permamently on your system. This will
 % allow you to access any script, function, class or data from any path you
 % are currently in. You can uninstall the library by running the uninstall 
 % script you can find next to this script.
@@ -27,73 +27,99 @@
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 % SOFTWARE.
 
-
 function install()
-    %% Test the current location
-
-    rootDirectory = strcat(pwd,'\');
-
-    try
-        check = core_checkenvironment(dir); 
-    catch err 
-        check = 0;
+    check_environment();
+    [name, link, author, version, command] = get_package_data();
+        
+    print_header();
+    print_target_data(name, link, author, version);
+    
+    paths = get_path_list();
+    s = size(paths);
+    for k=1:s(1)
+        addpath(char(paths{k}));
+        print_added_path(char(paths{k}));
     end
 
-    %% Based on the previous test, add the libraries or send an error message
-
-    if check
-        [name, version, message] = core_getlibrarydata();
-        
-        disp(' ');
-        disp('======================================================================================');
-        disp([' MATLAB Library System: installing ', name, ' ', version, '..']);
-        disp('--------------------------------------------------------------------------------------');
-        
-        allLibraryDirectories = regexp(genpath('library'),['[^;]*'],'match');
-
-        for k=1:length(allLibraryDirectories)
-            newPath = strcat(rootDirectory,allLibraryDirectories{k});
-            addpath(newPath);
-            disp(['   path added: ', newPath]);
-        end
-
-        savepath;
-
-        disp('--------------------------------------------------------------------------------------');
-        disp([' ', name, ' ', version, ' has been successfully installed on your system!']);
-        if message > 0
-            disp('--------------------------------------------------------------------------------------');
-            disp([' ', message]);
-            disp('======================================================================================');
-        else
-            disp('======================================================================================');
-        end
-        disp(' ');
-        
-        clear name version newPath rootDirectory allLibraryDirectories
-    else
-        clear check err rootDirectory
-        error('Error: You are in the wrong folder! Make sure you navigate to the root folder of your library that contains the install script!');
-    end
-
-    clear ans currentFolders result k check
+    savepath;
+    
+    print_success(name, link, version);
+    print_demo_command(command)
+    print_footer();
+    clear ans k message name paths s version check
 end
 
-function [ ret ] = core_checkenvironment( currentFolders )
-    result = 0;
-    for k=1:length(currentFolders);
-        if strcmp(currentFolders(k).name,'library')
-            result = result + 1;
-        end
+function check_environment()
+    d = dir();
+    isub = [d(:).isdir];
+    nameFolds = {d(isub).name}';
+    if ~ismember('library', nameFolds)
+       error('library folder not found!'); 
     end
-    ret = result == 1; 
 end
 
-function [ name, version, message ] = core_getlibrarydata()
+function [ name, link, author, version, command ] = get_package_data()
     fileID = fopen('librarydata.txt');
     name = fgetl(fileID);
+    link =  fgetl(fileID);
+    author = fgetl(fileID);
     version = fgetl(fileID);
-    message = fgetl(fileID);
+    command = fgetl(fileID);
     fclose(fileID);
 end
 
+function ret = get_raw_subfolders()
+    d = dir('library');
+    isub = [d(:).isdir];
+    ret = {d(isub).name}';
+    ret(1) = []; ret(1) = [];
+end
+
+function ret = get_path_list()
+    paths = get_raw_subfolders();
+    s = size(paths);
+    for k=1:s(1)
+        ret(k) = fullfile(pwd, 'library', paths(k,:));
+    end
+    ret = {fullfile(pwd, 'library'); ret};
+end
+
+function print_header()
+    disp(' ');
+    disp('#====================================================================================#');
+    disp('|                      M A T L A B   L I B R A R Y   S Y S T E M                     |');
+    disp('|               >>-------------------------~-------------------------<<              |');
+    disp('|                                       v1.5.0                                       |');
+    disp('#====================================================================================#');
+    disp('|                                   by <a href="http://tiborsimon.io">Tibor Simon</a>                                   |');
+    disp('#------------------------------------------------------------------------------------#');
+end
+
+function print_target_data(name, link, author, version)
+    disp(' ');
+    disp(['   Installing <a href="', link, '">', name, '</a> ', version, ' by ', author, '..'])
+    disp(' ');
+end
+
+function print_added_path(path)
+    disp(['     -> Path added: ', path]);
+end
+
+function print_success(name, link, version)
+    disp(' ');
+    disp('#------------------------------------------------------------------------------------#');
+    disp('|                                    S U C C E S S                                   |');
+    disp('#------------------------------------------------------------------------------------#');
+    disp(' ');
+    disp(['   <a href="', link, '">', name, '</a> ', version, ' has been installed succesfully to your system!']);
+end
+
+function print_demo_command(command)
+    disp(['   HINT: Test your installation by running: <a href="matlab:', command, '">', command, '</a>']);
+    disp(' ');
+end
+
+function print_footer()
+    disp('#====================================================================================#');
+    disp(' ');
+end
