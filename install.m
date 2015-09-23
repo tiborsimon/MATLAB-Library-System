@@ -34,19 +34,12 @@ function install()
     print_header();
     print_target_data(name, link, author, version);
     
-    paths = get_path_list();
-    s = size(paths);
-    for k=1:s(1)
-        addpath(char(paths{k}));
-        print_added_path(char(paths{k}));
-    end
-
-    savepath;
+    process_paths();
     
     print_success(name, link, version);
-    print_demo_command(command)
+    print_demo_command(command);
     print_footer();
-    clear ans k message name paths s version check
+    clear name link author version command ans
 end
 
 function check_environment()
@@ -56,6 +49,15 @@ function check_environment()
     if ~ismember('library', nameFolds)
        error('library folder not found!'); 
     end
+end
+
+function process_paths()
+    paths = get_raw_subfolders('library', {});
+    for k=1:length(paths)
+        addpath(char(paths{k}));
+        print_added_path(char(paths{k}));
+    end
+    savepath;
 end
 
 function [ name, link, author, version, command ] = get_package_data()
@@ -68,20 +70,24 @@ function [ name, link, author, version, command ] = get_package_data()
     fclose(fileID);
 end
 
-function ret = get_raw_subfolders()
-    d = dir('library');
-    isub = [d(:).isdir];
-    ret = {d(isub).name}';
-    ret(1) = []; ret(1) = [];
+function paths = get_raw_subfolders(base_dir, paths)
+    d = dir(base_dir);
+    for k = 1:length(d)
+       if (d(k).isdir == 1)
+           switch d(k).name
+               case '.'
+                   paths{end+1} = fullfile(pwd, base_dir);
+               case '..'
+                   % Nothing to do
+               otherwise
+                   paths = get_raw_subfolders(fullfile(base_dir, d(k).name), paths);
+           end
+       end
+    end
 end
 
-function ret = get_path_list()
-    paths = get_raw_subfolders();
-    s = size(paths);
-    for k=1:s(1)
-        ret(k) = fullfile(pwd, 'library', paths(k,:));
-    end
-    ret = {fullfile(pwd, 'library'); ret};
+function ret = INDENTATION()
+    ret = '   ';
 end
 
 function print_header()
@@ -90,36 +96,35 @@ function print_header()
     disp('|                      M A T L A B   L I B R A R Y   S Y S T E M                     |');
     disp('|               >>-------------------------~-------------------------<<              |');
     disp('|                                       v1.5.0                                       |');
-    disp('#====================================================================================#');
-    disp('|                                   by <a href="http://tiborsimon.io">Tibor Simon</a>                                   |');
+    % disp('|                                     <a href="http://tiborsimon.io">Tibor Simon</a>                                    |');
     disp('#------------------------------------------------------------------------------------#');
 end
 
 function print_target_data(name, link, author, version)
     disp(' ');
-    disp(['   Installing <a href="', link, '">', name, '</a> ', version, ' by ', author, '..'])
+    disp([INDENTATION, 'Installing <a href="', link, '">', name, '</a> ', version, ' by ', author, '..'])
     disp(' ');
 end
 
 function print_added_path(path)
-    disp(['     -> Path added: ', path]);
+    disp([INDENTATION, INDENTATION, '-> Path added: ', path]);
 end
 
 function print_success(name, link, version)
     disp(' ');
-    disp('#------------------------------------------------------------------------------------#');
-    disp('|                                    S U C C E S S                                   |');
-    disp('#------------------------------------------------------------------------------------#');
+    disp([INDENTATION, 'Finished!']);
     disp(' ');
-    disp(['   <a href="', link, '">', name, '</a> ', version, ' has been installed succesfully to your system!']);
+    disp([INDENTATION, INDENTATION, '<a href="', link, '">', name, '</a> ', version, ' has been succesfully installed to your system!']);
+    disp(' ');
 end
 
 function print_demo_command(command)
-    disp(['   HINT: Test your installation by running: <a href="matlab:', command, '">', command, '</a>']);
+    disp([INDENTATION, INDENTATION, 'Test your installation by running: <a href="matlab:', command, '">', command, '</a>']);
     disp(' ');
 end
 
 function print_footer()
     disp('#====================================================================================#');
+    % disp('#==========================================================created by <a href="http://tiborsimon.io">Tibor Simon</a>====#');
     disp(' ');
 end

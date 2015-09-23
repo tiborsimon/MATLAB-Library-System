@@ -1,9 +1,9 @@
-%% MATLAB Library System uninstallation script
+%% MATLAB Library System installation script
 % By running this script the content of the current folder's `library` folder 
-% will be removed from the MATLAB path permamently on your system.
-
-% IMPORTANT: before you run the script navigate your Current Folder to the
-% DSP Sandbox repo root, otherwise the installation will be unsuccessful..
+% will be injected into the MATLAB path permamently on your system. This will
+% allow you to access any script, function, class or data from any path you
+% are currently in. You can uninstall the library by running the uninstall 
+% script you can find next to this script.
 
 % The MIT License (MIT)
 % 
@@ -28,61 +28,99 @@
 % SOFTWARE.
 
 function uninstall()
-
-    if core_checkenvironment(dir);
-
-        [name, version, message] = core_getlibrarydata();
-
-        disp(' ');
-        disp('======================================================================================');
-        disp([' MATLAB Library System: uninstalling ', name, ' ', version, '..']);
-        disp('--------------------------------------------------------------------------------------');
-
-        rootDirectory = strcat(pwd,'\');
-
-        allLibraryDirectories = regexp(genpath('library'),['[^;]*'],'match');
+    check_environment();
+    [name, link, author, version, command] = get_package_data();
         
-        for k=1:length(allLibraryDirectories)
-            newPath = strcat(rootDirectory,allLibraryDirectories{k});
-            lastwarn('')
-            warning ('off','all');
-            rmpath(newPath);
-            warning ('on','all');
-            if ~strcmp(lastwarn,'')
-                disp('   WARNING: Your library has been uninstalled already..');
-                break;
-            end
-            disp(['   path removed: ', newPath]);
-        end
-
-        savepath;
-
-        disp('--------------------------------------------------------------------------------------');
-        disp([' ', name, ' ', version, ' has been successfully uninstalled from your system!']);
-        disp('======================================================================================');
-        disp(' ');
-        clear name version newPath rootDirectory allLibraryDirectories
-    else
-        error('Error: You are in the wrong folder! Make sure you navigate to the root folder of your library that contains the uninstall script!');
-    end
+    print_header();
+    print_target_data(name, link, author, version);
     
-    clear ans currentFolders result k
+    process_paths();
+    
+    print_success(name, link, version);
+    print_footer();
+    clear name link author version command ans
 end
 
-function [ ret ] = core_checkenvironment( currentFolders )
-    result = 0;
-    for k=1:length(currentFolders);
-        if strcmp(currentFolders(k).name,'library')
-            result = result + 1;
-        end
+function check_environment()
+    d = dir();
+    isub = [d(:).isdir];
+    nameFolds = {d(isub).name}';
+    if ~ismember('library', nameFolds)
+       error('library folder not found!'); 
     end
-    ret = result == 1; 
 end
 
-function [ name, version, message ] = core_getlibrarydata()
+function [ name, link, author, version, command ] = get_package_data()
     fileID = fopen('librarydata.txt');
     name = fgetl(fileID);
+    link =  fgetl(fileID);
+    author = fgetl(fileID);
     version = fgetl(fileID);
-    message = fgetl(fileID);
+    command = fgetl(fileID);
     fclose(fileID);
+end
+
+function process_paths()
+    paths = get_raw_subfolders('library', {});
+    warning('off', 'all')
+    for k=1:length(paths)
+        rmpath(char(paths{k}));
+        print_added_path(char(paths{k}));
+    end
+    warning('on', 'all')
+    savepath;
+end
+
+function paths = get_raw_subfolders(base_dir, paths)
+    d = dir(base_dir);
+    for k = 1:length(d)
+       if (d(k).isdir == 1)
+           switch d(k).name
+               case '.'
+                   paths{end+1} = fullfile(pwd, base_dir);
+               case '..'
+                   % Nothing to do
+               otherwise
+                   paths = get_raw_subfolders(fullfile(base_dir, d(k).name), paths);
+           end
+       end
+    end
+end
+
+function ret = INDENTATION()
+    ret = '   ';
+end
+
+function print_header()
+    disp(' ');
+    disp('#====================================================================================#');
+    disp('|                      M A T L A B   L I B R A R Y   S Y S T E M                     |');
+    disp('|               >>-------------------------~-------------------------<<              |');
+    disp('|                                       v1.5.0                                       |');
+    disp('#====================================================================================#');
+    % disp('|                                   by <a href="http://tiborsimon.io">Tibor Simon</a>                                   |');
+    % disp('#------------------------------------------------------------------------------------#');
+end
+
+function print_target_data(name, link, author, version)
+    disp(' ');
+    disp([INDENTATION, 'Removing <a href="', link, '">', name, '</a> ', version, ' by ', author, '..'])
+    disp(' ');
+end
+
+function print_added_path(path)
+    disp([INDENTATION, INDENTATION, '-> Path removed: ', path]);
+end
+
+function print_success(name, link, version)
+    disp(' ');
+    disp([INDENTATION, 'Finished!']);
+    disp(' ');
+    disp([INDENTATION, INDENTATION, '<a href="', link, '">', name, '</a> ', version, ' has been succesfully removed from your system!']);
+    disp(' ');
+end
+
+function print_footer()
+    disp('#====================================================================================#');
+    disp(' ');
 end
