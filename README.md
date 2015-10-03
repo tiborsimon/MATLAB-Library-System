@@ -65,7 +65,7 @@ All the functions defined in the library folder and it's subfolders will be remo
 
 You can have a __folder__ for your __MLS packages__ somewhere in your machine where you can keep all of your third party modules and your own packages as well. You can create a __install/uninstall all__ script that will install/uninstall all of your modules at once. In this way you can install all of your packages to your actual MATLAB workspace if you didn't do that already, or you are on a new machine. 
 
-Check out the latest release. It will contain these scripts. Make sure you only have MLS packages inside the folder you run the scripts, otherwise it wont work.
+Check out the <a href="https://github.com/tiborsimon/matlab-library-system/releases/latest" target="_blank">latest release page</a>. It will contain these scripts too. Make sure you only have MLS packages inside the folder you run the scripts, otherwise it wont work.
 
 You can write your own scripts, that has a functionality something like this:
 
@@ -187,5 +187,3 @@ See the included license file for further details.
 
 
 [^1]: Have you ever downloaded a piece of third party MATLAB code and have you tried to use it? If you have, you probably know that it is a headache.. Managing third party libraries in MATLAB is not a trivial. The code only works if you are in the same folder, or you have to add  it manually every time you start MATLAB, because adding something to your path is not meant to be in your path unless you have saved the path.
-
-
