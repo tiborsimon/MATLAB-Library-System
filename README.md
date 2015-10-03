@@ -1,6 +1,6 @@
 # MATLAB Library System v2.2.0
 
-__MATLAB Library System__ is a lightweight modular packaging method addressing the inconvenient third party library handling in MATLAB[^1]. It provides a _one-command_ way to _install/uninstall_ the third party functionality into your MATLAB workspace _permanently_. It also defines a standard way for the library authors to add credit and versioning information and a quick start guide that can be used as a quick installation tester method.
+__MATLAB Library System__ is a lightweight modular packaging method addressing the inconvenient third party library handling in MATLAB. It provides a _one-command_ way to _install/uninstall_ the third party functionality into your MATLAB workspace _permanently_. It also defines a standard way for the library authors to add credit and versioning information and a quick start guide that can be used as a quick installation tester method.
 
 <a title="Latest version" href="https://github.com/tiborsimon/MATLAB-Library-System/releases/latest" target="_blank">
    <img src="https://img.shields.io/badge/version-v2.3.0-green.svg?style=flat" />
@@ -179,7 +179,3 @@ You have created your MLS package that is ready to ship!
 
 This project is under the __MIT license__. 
 See the included license file for further details.
-
-
-
-[^1]: Have you ever downloaded a piece of third party MATLAB code and have you tried to use it? If you have, you probably know that it is a headache.. Managing third party libraries in MATLAB is not a trivial. The code only works if you are in the same folder, or you have to add  it manually every time you start MATLAB, because adding something to your path is not meant to be in your path unless you have saved the path.
