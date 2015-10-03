@@ -1,6 +1,6 @@
-# MATLAB Library System
+# MATLAB Library System v2.2.0
 
-Library handling module that makes shipment and adding/removing MATLAB scripts and functions convenient for you and your customers.
+__MATLAB Library System__ is a lightweight modular packaging method addressing the inconvenient third party library handling in MATLAB[^1]. It provides a _one-command_ way to _install/uninstall_ the third party functionality into your MATLAB workspace _permanently_. It also defines a standard way for the library authors to add credit and versioning information and a quick start guide that can be used as a quick installation tester method.
 
 <a title="Latest version" href="https://github.com/tiborsimon/MATLAB-Library-System/releases/latest" target="_blank">
    <img src="https://img.shields.io/badge/version-v2.3.0-green.svg?style=flat" />
@@ -14,10 +14,6 @@ Library handling module that makes shipment and adding/removing MATLAB scripts a
 <a title="License" href="#license">
    <img src="http://img.shields.io/badge/license-MIT-green.svg?style=flat" />
 </a>
-
-# Documentation v2.2.0
-
-__MATLAB Library System__ is a lightweight modular packaging method addressing the inconvenient third party library handling in MATLAB[^1]. It provides a _one-command_ way to _install/uninstall_ the third party functionality into your MATLAB workspace _permanently_. It also defines a standard way for the library authors to add credit and versioning information and a quick start guide that can be used as a quick installation tester method.
 
 ## MLS packages
 
