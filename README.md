@@ -4,7 +4,7 @@ __MATLAB Library System__ is a lightweight modular packaging method addressing t
 
 [![Gitter](https://img.shields.io/gitter/room/tiborsimon/matlab-library-system.svg?maxAge=2592000)](https://gitter.im/tiborsimon/matlab-library-system?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![GitHub release](https://img.shields.io/github/release/tiborsimon/matlab-library-system.svg?maxAge=2592000)](https://github.com/tiborsimon/matlab-library-system/releases/latest)
-[![license](https://img.shields.io/github/license/tiborsimon/matlab-library-system.svg?maxAge=2592000)](https://github.com/tiborsimon/matlab-library-system#Licence)
+[![license](https://img.shields.io/github/license/tiborsimon/matlab-library-system.svg?maxAge=2592000)](https://github.com/tiborsimon/matlab-library-system#license)
 [![Github All Releases](https://img.shields.io/github/downloads/tiborsimon/matlab-library-system/total.svg?maxAge=2592000)](https://github.com/tiborsimon/matlab-library-system/releases/latest)
 
 ## MLS packages
