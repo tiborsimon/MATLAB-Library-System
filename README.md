@@ -4,18 +4,10 @@
 
 __MATLAB Library System__ is a lightweight modular packaging method addressing the inconvenient third party library handling in MATLAB. It provides a _one-command_ way to _install/uninstall_ the third party functionality into your MATLAB workspace _permanently_. It also defines a standard way for the library authors to add credit and versioning information and a quick start guide that can be used as a quick installation tester method.
 
-<a title="Latest version" href="https://github.com/tiborsimon/MATLAB-Library-System/releases/latest" target="_blank">
-   <img src="https://img.shields.io/badge/version-v2.3.0-green.svg?style=flat" />
-</a>
-<a title="Goto article" href="http://tiborsimon.io/projects/TSPR0001/" target="_blank">
-   <img src="https://img.shields.io/badge/article-read-blue.svg?style=flat" />
-</a>
-<a title="Goto discussion" href="http://tiborsimon.io/projects/TSPR0001/#discussion" target="_blank">
-   <img src="https://img.shields.io/badge/discussion-join-orange.svg?style=flat" />
-</a>
-<a title="License" href="#license">
-   <img src="http://img.shields.io/badge/license-MIT-green.svg?style=flat" />
-</a>
+[![Gitter](https://img.shields.io/gitter/room/tiborsimon/matlab-library-system.svg?maxAge=2592000)](https://gitter.im/tiborsimon/matlab-library-system?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![GitHub release](https://img.shields.io/github/release/tiborsimon/matlab-library-system.svg?maxAge=2592000)](https://github.com/tiborsimon/Jmatlab-library-system/releases/latest)
+[![license](https://img.shields.io/github/license/tiborsimon/matlab-library-system.svg?maxAge=2592000)]()
+[![Github All Releases](https://img.shields.io/github/downloads/tiborsimon/matlab-library-system/total.svg?maxAge=2592000)](https://github.com/tiborsimon/matlab-library-system/releases/latest)
 
 ## MLS packages
 
