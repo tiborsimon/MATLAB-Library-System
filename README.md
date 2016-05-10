@@ -1,4 +1,4 @@
-# MATLAB Library System v2.3.0
+# MATLAB Library System
 
 __MATLAB Library System__ is a lightweight modular packaging method addressing the inconvenient third party library handling in MATLAB. It provides a _one-command_ way to _install/uninstall_ the third party functionality into your MATLAB workspace _permanently_. It also defines a standard way for the library authors to add credit and versioning information and a quick start guide that can be used as a quick installation tester method.
 
