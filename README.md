@@ -3,8 +3,8 @@
 __MATLAB Library System__ is a lightweight modular packaging method addressing the inconvenient third party library handling in MATLAB. It provides a _one-command_ way to _install/uninstall_ the third party functionality into your MATLAB workspace _permanently_. It also defines a standard way for the library authors to add credit and versioning information and a quick start guide that can be used as a quick installation tester method.
 
 [![Gitter](https://img.shields.io/gitter/room/tiborsimon/matlab-library-system.svg?maxAge=2592000)](https://gitter.im/tiborsimon/matlab-library-system?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![GitHub release](https://img.shields.io/github/release/tiborsimon/matlab-library-system.svg?maxAge=2592000)](https://github.com/tiborsimon/Jmatlab-library-system/releases/latest)
-[![license](https://img.shields.io/github/license/tiborsimon/matlab-library-system.svg?maxAge=2592000)]()
+[![GitHub release](https://img.shields.io/github/release/tiborsimon/matlab-library-system.svg?maxAge=2592000)](https://github.com/tiborsimon/matlab-library-system/releases/latest)
+[![license](https://img.shields.io/github/license/tiborsimon/matlab-library-system.svg?maxAge=2592000)](https://github.com/tiborsimon/matlab-library-system#Licence)
 [![Github All Releases](https://img.shields.io/github/downloads/tiborsimon/matlab-library-system/total.svg?maxAge=2592000)](https://github.com/tiborsimon/matlab-library-system/releases/latest)
 
 ## MLS packages
@@ -171,3 +171,25 @@ You have created your MLS package that is ready to ship!
 
 This project is under the __MIT license__. 
 See the included license file for further details.
+
+```
+Copyright (c) 2015 Tibor Simon
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
